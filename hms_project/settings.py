@@ -155,7 +155,7 @@ AUTH_USER_MODEL = "user_auth.User"
 JAZZMIN_SETTINGS = {
     'site_header': "HMS - System",
     #'site_brand': "No1 Digital Marketplace for everyone.",
-    'site_logo': "img/logo.jpeg",
+    #'site_logo': "img/logo.jpeg",
     'copyright':  "All Right Reserved 2024",
     "welcome_sign": "Hotel System Management.",
     

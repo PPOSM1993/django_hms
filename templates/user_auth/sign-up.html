@@ -1,10 +1,58 @@
-<h1>Register</h1>
+{% extends "partials/base.html" %}
+{% load static %}
+{% block content %}
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	    <div class="container">
+		    <div class="row fullscreen d-flex align-items-center justify-content-center">
+			    <div class="banner-content col-lg-12">
+                    <br>
+                    <section class="features-area">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                          <h1 class="text-uppercase">Register</h1>
+                                          <span>Hi there, please create your new account</span>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST" action="">
+                                                {% csrf_token %}
+                                                {{form.full_name}}
+                                                <br>
+                                                {{form.email}}
+                                                <br>
+                                                {{form.username}}
+                                                <br>
+                                                {{form.phone}}
+                                                <br>
+                                                {{form.password1}}
+                                                <br>
+                                                {{form.password2}}
+                                                <br>
+                                                <input type='submit' class='button border fw margin-top-10 btn btn-success' name='register' value='Register'>
+                                            </form>
+                                        </div>
+                                      </div>
+                                </div>
 
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form.as_p}}
-    <!--<input type="text", placeholder="Enter Pin" class="btn btn-success" name="" id="">-->
-    
-    <button type="submit">SignUp</button>
-</form>
+                                <div class="col-lg-6 col-md-6">
+                                    <img src="{% static "img/new_user.png" %}" width="300">
+                                </div>
+																	
+                            </div>
+                        </div>	
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock  %}
+
+

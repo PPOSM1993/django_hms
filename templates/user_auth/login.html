@@ -1,0 +1,49 @@
+{% extends "partials/base.html" %}
+{% load static %}
+{% block content %}
+<section class="banner-area relative" id="home">
+	<div class="overlay overlay-bg"></div>
+	    <div class="container">
+		    <div class="row fullscreen d-flex align-items-center justify-content-center">
+			    <div class="banner-content col-lg-12">
+                    <br>
+                    <section class="features-area">
+                        <div class="container">
+                            <div class="row">
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="card">
+                                        <div class="card-header">
+                                          <h1 class="text-uppercase">Login</h1>
+                                        </div>
+                                        <div class="card-body">
+                                            <form method="POST" action="">
+                                                {% csrf_token %}
+                                                <input type="text" placeholder="Enter Email" class="form-control form-control-md" name="email">
+                                                <br>
+                                                <input type="password" placeholder="Enter Password" class="form-control form-control-md" name="password">
+                                                <br>
+                                                <input type='submit' class='button border fw margin-top-10 btn btn-success' name='login' value='Login'>
+                                            </form>
+                                        </div>
+                                      </div>
+                                </div>
+
+
+                                <div class="col-lg-6 col-md-6">
+                                    <img src="{% static "img/new_user.png" %}" width="300">
+                                </div>
+																	
+                            </div>
+                        </div>	
+                    </section>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock  %}
+
+

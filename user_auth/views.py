@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from user_auth.models import User, Profile
 from .forms import *
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 # Create your views here.
@@ -40,4 +40,31 @@ def RegisterView(request):
     return render(request, "user_auth/sign-up.html", context)
 
 def LoginView(request):
-    pass
+    if request.user.is_authenticated:
+        messages.warning(request, "You are already logged in")
+        return redirect("hotel:index")
+    
+    if request.method == "POST":
+        email = request.POST.get("email")
+        password = request.POST.get("password")
+
+        try:
+            user_query = User.objects.get(email=email)
+            user_auth = authenticate(request, email=email, password=password)
+            if user_query is not None:
+                login(request, user_auth)
+                messages.success(request, "You are logged in")
+                next_url = request.GET.get("next", "hotel:index")
+                return redirect(next_url)
+            else:
+                messages.error(request, "Username or password")
+                return redirect("user_auth:login")
+        except:
+                messages.error(request, "User does not exist")
+                return redirect("user_auth:login")
+    return render(request, "user_auth/login.html")
+
+def Logout(request):
+    logout(request)
+    messages.success(request, "You have been logged out")
+    return redirect("user_auth:login")
