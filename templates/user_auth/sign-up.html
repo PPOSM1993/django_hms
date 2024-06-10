@@ -1,0 +1,10 @@
+<h1>Register</h1>
+
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {{form.as_p}}
+    <!--<input type="text", placeholder="Enter Pin" class="btn btn-success" name="" id="">-->
+    
+    <button type="submit">SignUp</button>
+</form>

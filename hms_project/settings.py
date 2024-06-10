@@ -150,10 +150,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
+AUTH_USER_MODEL = "user_auth.User"
+
 JAZZMIN_SETTINGS = {
     'site_header': "HMS - System",
     #'site_brand': "No1 Digital Marketplace for everyone.",
-    #'site_logo': "assets/imgs/logo.jpeg",
+    'site_logo': "img/logo.jpeg",
     'copyright':  "All Right Reserved 2024",
     "welcome_sign": "Hotel System Management.",
     
